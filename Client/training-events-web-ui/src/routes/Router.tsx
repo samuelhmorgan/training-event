@@ -3,6 +3,7 @@ import {Route, Switch, BrowserRouter} from "react-router-dom";
 import {CssBaseline, ThemeProvider} from "@material-ui/core";
 import {EventsView} from "../views";
 import {connect} from "react-redux";
+import ViewNotFound from "../components/view-not-found/PageNotFound";
 
 const mapStateToProps = (state:any) => ({
     theme: state.theme
@@ -20,7 +21,8 @@ export const Router:React.FC<RouterProps> = (props:RouterProps) => {
             <CssBaseline/>
             <BrowserRouter>
                 <Switch>
-                    <Route exact path="events" component={EventsView} />
+                    <Route exact path="/events" component={EventsView} />
+                    <Route path="*" component={ViewNotFound} />
                 </Switch>
             </BrowserRouter>
         </ThemeProvider>

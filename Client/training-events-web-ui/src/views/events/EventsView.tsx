@@ -36,7 +36,9 @@ export class EventsView extends Component<EventsViewProps>{
     }
 
     render(){
-        return <div/>
+        return <div>
+            <p>Test</p>
+        </div>
     }
 }
  export default connect(mapStateToProps, mapDispatchToProps)(EventsView);
