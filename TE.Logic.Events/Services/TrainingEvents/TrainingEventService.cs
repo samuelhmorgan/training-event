@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MongoDB.Driver;
@@ -20,21 +21,36 @@ namespace TE.Logic.Events.Services.TrainingEvents
 
         public async Task<OperationResult<IEnumerable<TrainingEventDto>>> GetEvents(EventSearchCriteriaDto searchCriteria)
         {
-            var withinDateRange = Builders<TrainingEvent>.Filter.And(
-                Builders<TrainingEvent>.Filter.Gte(evt => evt.StartTimeAsUtc, searchCriteria.StartDate),
-                Builders<TrainingEvent>.Filter.Lte(evt => evt.StartTimeAsUtc, searchCriteria.EndDate)
-            );
+            var filter = Builders<TrainingEvent>.Filter.Empty;
 
-            var withinLocationBox = Builders<TrainingEvent>.Filter.GeoWithinBox(evt => evt.Location.LatLon,
-                searchCriteria.SouthWestCorner.Longitude, searchCriteria.SouthWestCorner.Latitude,
-                searchCriteria.NorthEastCorner.Longitude, searchCriteria.NorthEastCorner.Latitude);
+            if (!string.IsNullOrEmpty(searchCriteria.Keyword))
+            {
+                filter  = Builders<TrainingEvent>.Filter.And(Builders<TrainingEvent>.Filter.Text(searchCriteria.Keyword),
+                    filter);
+            }
 
-            var otherFilters = Builders<TrainingEvent>.Filter.And(withinDateRange, withinLocationBox);
+            if (searchCriteria.StartDate != DateTime.MinValue && searchCriteria.EndDate != DateTime.MinValue)
+            {
+                var withinDateRange = Builders<TrainingEvent>.Filter.And(
+                    Builders<TrainingEvent>.Filter.Gte(evt => evt.StartTimeAsUtc, searchCriteria.StartDate),
+                    Builders<TrainingEvent>.Filter.Lte(evt => evt.StartTimeAsUtc, searchCriteria.EndDate)
+                );
 
-            var filter  = Builders<TrainingEvent>.Filter.And(Builders<TrainingEvent>.Filter.Text(searchCriteria.Keyword),
-                otherFilters);
+                filter  = Builders<TrainingEvent>.Filter.And(withinDateRange,
+                    filter);
+            }
 
 
+            if (searchCriteria.NorthEastCorner != null && searchCriteria.SouthWestCorner != null)
+            {
+                var withinLocationBox = Builders<TrainingEvent>.Filter.GeoWithinBox(evt => evt.Location.LatLon,
+                    searchCriteria.SouthWestCorner.Longitude, searchCriteria.SouthWestCorner.Latitude,
+                    searchCriteria.NorthEastCorner.Longitude, searchCriteria.NorthEastCorner.Latitude);
+
+                filter  = Builders<TrainingEvent>.Filter.And(withinLocationBox,
+                    filter);
+            }
+            
             var foundEvents = await _dbContext.TrainingEvents.FindAsync(filter);
 
             var results = foundEvents.ToList().Select(a => new TrainingEventDto(a));
