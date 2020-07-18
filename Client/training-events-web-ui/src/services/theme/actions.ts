@@ -1,5 +1,5 @@
 import {Theme} from "@material-ui/core";
-import {IAppAction} from "../../store";
+import IAppAction from "../../store/iappaction";
 
 export const themeActionConstants = {
     SET_THEME: 'SET_THEME'

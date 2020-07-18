@@ -1,5 +1,5 @@
 import {setTheme} from "./actions"
-import AppStateRegistry from "../../store/AppStateRegistry";
+import {AppStateRegistry} from "../../store";
 import {createMuiTheme, ThemeOptions} from "@material-ui/core";
 
 export interface IThemeService{

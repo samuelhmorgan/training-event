@@ -1,4 +1,4 @@
-import AppStateRegistry from "../../store/AppStateRegistry";
+import {AppStateRegistry} from "../../store/";
 
 export interface IApiService {
     makeRequest<TData>(endpoint:string,method:string,data:any):Promise<TData>

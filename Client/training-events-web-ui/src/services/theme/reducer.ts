@@ -14,6 +14,8 @@ const initialState:ThemeState = {
 export function themeReducer(state:ThemeState= initialState, action:IAppAction){
     switch(action.type){
         case (themeActionConstants.SET_THEME):
-            return {...state, theme:(action as SetThemeAction).uiTheme}
+            return {...state, theme:(action as SetThemeAction).uiTheme};
+        default:
+            return state;
     }
 }
