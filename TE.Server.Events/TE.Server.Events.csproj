@@ -10,6 +10,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TE.Logic.Events\TE.Logic.Events.csproj" />
+      <ProjectReference Include="..\TE.Shared\TE.Shared.csproj" />
     </ItemGroup>
 
 

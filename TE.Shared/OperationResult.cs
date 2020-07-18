@@ -1,4 +1,4 @@
-namespace TE.Logic.Events.Shared
+namespace TE.Shared
 {
     public class OperationResult{
         public OperationStatus Status { get; }

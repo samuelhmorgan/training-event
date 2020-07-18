@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using TrainingEvents.Web.Api.Services;
 
 namespace TrainingEvents.Web.Api
 {
@@ -26,6 +27,7 @@ namespace TrainingEvents.Web.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.Configure<MicroservicesSetting>(Configuration.GetSection("Microservices"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

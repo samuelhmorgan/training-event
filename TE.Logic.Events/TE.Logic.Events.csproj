@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\TE.Domain.Events\TE.Domain.Events.csproj" />
+      <ProjectReference Include="..\TE.Shared\TE.Shared.csproj" />
     </ItemGroup>
 
 </Project>

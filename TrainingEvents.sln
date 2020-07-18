@@ -14,6 +14,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{F5FAB3
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TE.Domain.Events", "TE.Domain.Events\TE.Domain.Events.csproj", "{0D4F3B6B-7989-453C-A21E-5A6B7B8A5C41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TE.Shared", "TE.Shared\TE.Shared.csproj", "{8409846B-0B3F-4795-8176-63C887D994F5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,6 +38,10 @@ Global
 		{0D4F3B6B-7989-453C-A21E-5A6B7B8A5C41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D4F3B6B-7989-453C-A21E-5A6B7B8A5C41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D4F3B6B-7989-453C-A21E-5A6B7B8A5C41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8409846B-0B3F-4795-8176-63C887D994F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8409846B-0B3F-4795-8176-63C887D994F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8409846B-0B3F-4795-8176-63C887D994F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8409846B-0B3F-4795-8176-63C887D994F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{777BF36B-D474-4BD4-8111-29D72F6DD34B} = {6DE434A9-D5F8-4912-8385-CB9766931136}
