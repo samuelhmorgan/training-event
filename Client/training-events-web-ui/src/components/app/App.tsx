@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from '../../assets/logo.svg';
-import './App.css';
+import AppStateRegistry from "../../store/AppStateRegistry";
+import AppState from "../../store/AppState";
+import {ThemeService} from "../../services/theme";
+import { StylesProvider } from '@material-ui/core/styles';
+import {theme} from "../../theme";
+import {Router} from "../../routes";
+import {Provider} from "react-redux";
+
+AppStateRegistry.register(AppState);
+new ThemeService().setupTheme(theme);
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <StylesProvider injectFirst>
+        <Provider store={AppState}>
+            <Router theme={theme} />
+        </Provider>
+      </StylesProvider>
   );
 }
 

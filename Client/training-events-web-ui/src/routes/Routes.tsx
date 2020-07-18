@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Route, Switch, BrowserRouter} from "react-router-dom";
-import {CssBaseline, ThemeProvider,Theme} from "@material-ui/core";
+import {CssBaseline, ThemeProvider} from "@material-ui/core";
 import {EventsView} from "../views";
 
 const mapStateToProps = (state:any) => ({
@@ -8,10 +8,10 @@ const mapStateToProps = (state:any) => ({
 })
 
 type RouterProps = {
-    theme:Partial<Theme>;
+    theme:any;
 }
 
-const Router:React.FC<RouterProps> = (props:RouterProps) => {
+export const Router:React.FC<RouterProps> = (props:RouterProps) => {
     const { theme } = props;
 
     return (
