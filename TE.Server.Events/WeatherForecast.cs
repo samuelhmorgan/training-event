@@ -1,6 +1,6 @@
 using System;
 
-namespace TrainingEvents
+namespace TE.Server.Events
 {
     public class WeatherForecast
     {
