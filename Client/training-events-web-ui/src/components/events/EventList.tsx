@@ -1,6 +1,12 @@
 import React from 'react';
+import {TrainingEvent} from "../../services/event/models/TrainingEvent";
 
-function EventList() {
+type EventListProps = {
+    events : Array<TrainingEvent>;
+}
+
+
+const EventList:React.FC<EventListProps> = (props:EventListProps) => {
     return (
         <div/>
     );
