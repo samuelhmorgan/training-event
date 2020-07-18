@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MongoDB.Driver.GeoJsonObjectModel;
 
 namespace TE.Domain.Events.Entities
 {
@@ -17,6 +18,7 @@ namespace TE.Domain.Events.Entities
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
+        public GeoJsonPoint<GeoJson2DGeographicCoordinates> LatLon { get; set; }
     }
 
     public class AvailableSeat

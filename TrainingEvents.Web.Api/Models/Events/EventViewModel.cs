@@ -38,11 +38,18 @@ namespace TrainingEvents.Web.Api.Models.Events
             City = location.City;
             State = location.State;
             Country = location.Country;
+            Location = new GeoLocationViewModel()
+            {
+                Latitude = location.Location.Latitude,
+                Longitude = location.Location.Longitude
+            };
         }
 
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
+
+        public GeoLocationViewModel Location { get; set; }
     }
 
     public class AvailableSeatResponseViewModel
