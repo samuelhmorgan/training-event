@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Authentication;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -10,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MongoDB.Driver;
 
 namespace TE.Server.Events
 {
@@ -26,6 +28,18 @@ namespace TE.Server.Events
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddScoped<IMongoDatabase>(ctx =>
+            {
+                var connectionString = Configuration.GetConnectionString("TrainingEventsDBConnection");
+                var settings = MongoClientSettings.FromUrl(new MongoUrl(connectionString));
+                settings.SslSettings = new SslSettings(){EnabledSslProtocols = SslProtocols.Tls12};
+                var mongoClient = new MongoClient(settings);
+                var database = mongoClient.GetDatabase("training-events");
+                return database;
+            });
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
