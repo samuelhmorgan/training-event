@@ -3,6 +3,7 @@ import {TrainingEvent} from "../../services/event/models/TrainingEvent";
 import {EventService} from "../../services/event";
 import {connect} from "react-redux";
 import {EventSearchCriteria} from "../../services/event/models/EventSearchCriteria";
+import PageLayout from "../../components/app/page-layout/PageLayout";
 
 type EventsViewProps = {
     isLoadingEvents: boolean;
@@ -36,9 +37,12 @@ export class EventsView extends Component<EventsViewProps>{
     }
 
     render(){
-        return <div>
-            <p>Test</p>
-        </div>
+        return (
+            <PageLayout>
+                <div><p>Test</p></div>
+            </PageLayout>
+        )
+
     }
 }
  export default connect(mapStateToProps, mapDispatchToProps)(EventsView);

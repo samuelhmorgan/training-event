@@ -5,17 +5,18 @@ import {EventsView} from "../views";
 import {connect} from "react-redux";
 import ViewNotFound from "../components/view-not-found/PageNotFound";
 
-const mapStateToProps = (state:any) => ({
-    theme: state.theme
-})
+const mapStateToProps = (state:any) => {
+    return {
+        theme: state.theme.theme
+    }
+};
 
 type RouterProps = {
-    theme:any;
+    theme?:any;
 }
 
-export const Router:React.FC<RouterProps> = (props:RouterProps) => {
+const Router:React.FC<RouterProps> = (props:RouterProps) => {
     const { theme } = props;
-
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline/>

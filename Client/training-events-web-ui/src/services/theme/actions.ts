@@ -11,7 +11,7 @@ export class SetThemeAction implements IAppAction{
     }
 }
 
-export function setTheme(uiTheme:Partial<Theme>):SetThemeAction{
+export function setTheme(uiTheme:Partial<Theme>){
     return {
         type:themeActionConstants.SET_THEME,
         uiTheme

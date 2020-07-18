@@ -2,7 +2,7 @@
 export const theme = {
     palette: {
         primary: {
-            main: '#0F7EB4',
+            main: '#ffffff',
             light: '#0099CC',
         },
         secondary: {
@@ -10,17 +10,18 @@ export const theme = {
             light: '#999999',
         },
         text:{
-            primary:'#0F7EB4'
+            primary:'#ffffff'
         },
         background:{
-            default:'#FFFFFF'
+            default:'#121212',
+            paper:'#424242'
         },
         common:{
             white:'#FFFFFF'
         }
     },
     typography:{
-
+        fontWeightBold:14
     }
 };
 
