@@ -11,6 +11,7 @@ using TrainingEvents.Web.Api.Services;
 
 namespace TrainingEvents.Web.Api.Controllers
 {
+    [Route("[controller]")]
     public class EventsController : ControllerBase
     {
         private readonly MicroservicesSetting _microservicesSetting;
@@ -22,9 +23,12 @@ namespace TrainingEvents.Web.Api.Controllers
             _client = new HttpClient();
         }
 
+        [HttpPost]
         public async Task<IActionResult> GetEvents([FromBody] SearchCriteriaViewModel searchCriteria)
         {
-            var requestMessage = new HttpRequestMessage(HttpMethod.Post, _microservicesSetting.TrainingEventsBaseUrl)
+            var url = $"{_microservicesSetting.TrainingEventsBaseUrl}/training-events";
+
+            var requestMessage = new HttpRequestMessage(HttpMethod.Post, url)
             {
                 Content = new StringContent(JsonConvert.SerializeObject(searchCriteria), System.Text.Encoding.UTF8,
                     "application/json")

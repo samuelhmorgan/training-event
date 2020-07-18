@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using MongoDB.Driver;
 using TE.Domain.Events;
 using TE.Domain.Events.Entities;
@@ -17,7 +18,7 @@ namespace TE.Logic.Events.Services.TrainingEvents
             _dbContext = dbContext;
         }
 
-        public OperationResult<IEnumerable<TrainingEventDto>> GetEvents(EventSearchCriteriaDto searchCriteria)
+        public async Task<OperationResult<IEnumerable<TrainingEventDto>>> GetEvents(EventSearchCriteriaDto searchCriteria)
         {
             var withinDateRange = Builders<TrainingEvent>.Filter.And(
                 Builders<TrainingEvent>.Filter.Gte(evt => evt.StartTimeAsUtc, searchCriteria.StartDate),
@@ -34,7 +35,7 @@ namespace TE.Logic.Events.Services.TrainingEvents
                 otherFilters);
 
 
-            var foundEvents = _dbContext.TrainingEvents.Find(filter);
+            var foundEvents = await _dbContext.TrainingEvents.FindAsync(filter);
 
             var results = foundEvents.ToList().Select(a => new TrainingEventDto(a));
             return new OperationResult<IEnumerable<TrainingEventDto>>(results);

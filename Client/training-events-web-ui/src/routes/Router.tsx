@@ -2,6 +2,7 @@ import * as React from "react";
 import {Route, Switch, BrowserRouter} from "react-router-dom";
 import {CssBaseline, ThemeProvider} from "@material-ui/core";
 import {EventsView} from "../views";
+import {connect} from "react-redux";
 
 const mapStateToProps = (state:any) => ({
     theme: state.theme
@@ -25,3 +26,6 @@ export const Router:React.FC<RouterProps> = (props:RouterProps) => {
         </ThemeProvider>
         );
 }
+
+
+export default connect(mapStateToProps)(Router);

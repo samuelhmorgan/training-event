@@ -2,9 +2,11 @@ import {applyMiddleware, combineReducers, compose, createStore} from "redux";
 import {themeReducer} from "../services/theme/";
 import thunk from "redux-thunk";
 import { createLogger } from 'redux-logger';
+import {eventsReducer} from "../services/event";
 
 const combinedReducer = combineReducers({
-    theme:themeReducer
+    theme:themeReducer,
+    events:eventsReducer
 })
 
 let createdStore;
