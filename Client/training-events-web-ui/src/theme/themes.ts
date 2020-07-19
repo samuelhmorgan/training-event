@@ -2,18 +2,19 @@
 export const theme = {
     palette: {
         primary: {
-            main: '#ffffff',
-            light: '#0099CC',
+            main: '#000000',
+            light: '#ffffff',
         },
         secondary: {
-            main: '#6F6F6F',
-            light: '#999999',
+            main: '#ffffff',
+            light: '#ffffff',
         },
         text:{
-            primary:'#ffffff'
+            primary:'#000000',
+            secondary:'#ffffff'
         },
         background:{
-            default:'#121212',
+            default:'#ffffff',
             paper:'#424242'
         },
         common:{

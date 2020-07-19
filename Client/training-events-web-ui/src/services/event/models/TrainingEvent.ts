@@ -7,6 +7,7 @@ export interface TrainingEvent{
     availableSeats:Array<AvailableSeat>;
     lastUpdated:Date;
     createdOn:Date;
+    description:string;
 }
 
 export interface EventLocation{

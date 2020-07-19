@@ -4,6 +4,8 @@ import {IApiService, RestApiService} from "../rest/apiservice";
 import {TrainingEvent} from "./models/TrainingEvent";
 import {OperationResult} from "../shared/operationresult";
 
+import mockevents from "../../assets/mockdata/events";
+
 export interface IEventService{
     requestEvents(searchCriteria:EventSearchCriteria):(dispatch:any)=>Promise<void>;
 }
@@ -36,5 +38,18 @@ export class EventService implements IEventService{
     }
 }
 
+
+export class MockEventService implements IEventService{
+
+    requestEvents(searchCriteria: EventSearchCriteria): (dispatch:any)=>Promise<void> {
+        return (dispatch) => {
+            dispatch(requestEvents());
+
+            return Promise.resolve().then(()=>{
+               setTimeout(()=> dispatch(receiveEvents(mockevents)),3000);
+            });
+        };
+    }
+}
 
 

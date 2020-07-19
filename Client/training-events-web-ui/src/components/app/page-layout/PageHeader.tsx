@@ -33,7 +33,6 @@ export default function Header(props:any) {
     return (
         <React.Fragment>
             <Toolbar className={classes.toolbar}>
-                <Button size="small">Subscribe</Button>
                 <Typography
                     component="h2"
                     variant="h5"

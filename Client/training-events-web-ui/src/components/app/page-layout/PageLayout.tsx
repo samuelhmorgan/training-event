@@ -24,12 +24,12 @@ function PageLayout(props: { children: any; }) {
         <React.Fragment>
             <CssBaseline />
             <Container maxWidth="lg">
-                <PageHeader title="Training Events" sections={sections} />
+                <PageHeader title="BrainWave Training Institute" sections={sections} />
                 <main>
                     {children}
                 </main>
             </Container>
-            <PageFooter title="Training Events" description="Training with Purpose"/>
+            <PageFooter title="Brainwave" description="Surf the wave"/>
         </React.Fragment>
     );
 }

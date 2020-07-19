@@ -11,6 +11,8 @@ namespace TE.Domain.Events.Entities
         public string ImageUrl { get; set; }
         public TrainingEventLocation Location { get; set; }
         public ICollection<AvailableSeat> AvailableSeats { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class TrainingEventLocation

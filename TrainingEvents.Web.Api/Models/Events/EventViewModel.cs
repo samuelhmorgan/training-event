@@ -15,6 +15,8 @@ namespace TrainingEvents.Web.Api.Models.Events
         public DateTime LastUpdated { get; set; }
         public DateTime CreatedOn { get; set; }
 
+        public string Description { get; set; }
+
         public EventViewModel(EventResponseDto eventResponseDto)
         {
             Id = eventResponseDto.Id;
@@ -25,6 +27,7 @@ namespace TrainingEvents.Web.Api.Models.Events
             AvailableSeats = eventResponseDto.AvailableSeats.Select(a => new AvailableSeatResponseViewModel(a));
             LastUpdated = eventResponseDto.LastUpdated;
             CreatedOn = eventResponseDto.CreatedOn;
+            Description = eventResponseDto.Description;
         }
     }
 

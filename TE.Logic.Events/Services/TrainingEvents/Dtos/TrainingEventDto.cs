@@ -16,6 +16,8 @@ namespace TE.Logic.Events.Services.TrainingEvents.Dtos
         public DateTime LastUpdated { get; set; }
         public DateTime CreatedOn { get; set; }
 
+        public string Description { get; set; }
+
         public TrainingEventDto(TrainingEvent trainingEvent)
         {
 
@@ -23,6 +25,7 @@ namespace TE.Logic.Events.Services.TrainingEvents.Dtos
             Title = trainingEvent.Title;
             StartTimeAsUtc = trainingEvent.StartTimeAsUtc;
             ImageUrl = trainingEvent.ImageUrl;
+            Description = Description;
             Location = new TrainingEventLocationDto()
             {
                 City = trainingEvent.Location.City,

@@ -10,7 +10,7 @@ export class RestApiService implements  IApiService{
 
         const contentType = 'application/json';
 
-        const { accessToken } = AppStateRegistry.store?.getState()?.token;  //TODO - Add Authorisation Token
+        const  accessToken = AppStateRegistry.store?.getState()?.token;  //TODO - Add Authorisation Token
 
         const url = RestApiService.setupUrl(endpoint);
 
@@ -29,12 +29,12 @@ export class RestApiService implements  IApiService{
                 return await response.json() as TData;
             }
 
-            throw response;
-
         }catch(ex){
-            //TODO - show generic message here
-            throw ex;
+            //TODO - Log Here to a tool like Sentry
+            throw "Error Occured While Connecting to the Server";
         }
+
+        throw "Error Occured While Connecting to the Server";
     }
 
     private static setupUrl(endpoint: string): string {

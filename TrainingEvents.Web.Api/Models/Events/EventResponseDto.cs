@@ -13,6 +13,8 @@ namespace TrainingEvents.Web.Api.Models.Events
         public IEnumerable<AvailableSeatResponseDto> AvailableSeats { get; set; }
         public DateTime LastUpdated { get; set; }
         public DateTime CreatedOn { get; set; }
+
+        public string Description { get; set; }
     }
 
     public class EventResponseLocationDto
