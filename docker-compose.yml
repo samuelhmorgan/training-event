@@ -6,7 +6,7 @@ services:
     container_name: client-ui
     build:
       context: .
-      dockerfile: Client/training-events-web-ui/Dockerfile
+      dockerfile: Dockerfile_Client
     volumes:
       - '.:/app'
       - '/app/node_modules'
@@ -20,7 +20,7 @@ services:
     container_name: web-api
     build:
       context: .
-      dockerfile: TrainingEvents.Web.Api/Dockerfile
+      dockerfile: Dockerfile_WebApi
     ports:
       - 3007:80
     environment:
@@ -30,7 +30,7 @@ services:
     container_name: event-microservice-api
     build:
       context: .
-      dockerfile: TE.Server.Events/Dockerfile
+      dockerfile: Dockerfile_Microservice
     ports:
       - 3006:80
     environment:

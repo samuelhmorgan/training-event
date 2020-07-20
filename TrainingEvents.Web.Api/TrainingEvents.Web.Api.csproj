@@ -12,5 +12,9 @@
       <ProjectReference Include="..\TE.Shared\TE.Shared.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Remove="Dockerfile" />
+    </ItemGroup>
+
 
 </Project>

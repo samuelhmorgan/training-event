@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
+using TE.Domain.Events;
 using TE.Logic.Events.Services.TrainingEvents;
 
 namespace TE.Server.Events
@@ -41,7 +42,8 @@ namespace TE.Server.Events
             });
 
             services.AddTransient<ITrainingEventService, TrainingEventService>();
-            
+            services.AddTransient<IDbContext, DbContext>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
