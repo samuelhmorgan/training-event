@@ -19,8 +19,6 @@ const EventList:React.FC<EventListProps> = (props:EventListProps) => {
 
     const {events} = props;
 
-    const classes = useStyles();
-
     return (
         <React.Fragment>
         {events.map((event:TrainingEvent) => (

@@ -3,13 +3,11 @@ version: '3.7'
 services:
 
   client.ui:
+    stdin_open: true
     container_name: client-ui
     build:
       context: .
       dockerfile: Dockerfile_Client
-    volumes:
-      - '.:/app'
-      - '/app/node_modules'
     ports:
       - 3001:80
     environment:

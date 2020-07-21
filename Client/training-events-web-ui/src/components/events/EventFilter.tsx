@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function EventFilter() {
     const classes = useStyles();
-    const [value, setValue] = React.useState('Controlled');
+    const [value, setValue] = React.useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setValue(event.target.value);

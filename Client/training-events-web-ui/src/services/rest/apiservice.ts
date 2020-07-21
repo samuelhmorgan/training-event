@@ -30,7 +30,7 @@ export class RestApiService implements  IApiService{
             }
 
         }catch(ex){
-            //TODO - Log Here to a tool like Sentry
+            //TODO - Log Here to a tool like Sentry - Also Refactor to Fix Warning - Dont throw Literal
             throw "Error Occured While Connecting to the Server";
         }
 

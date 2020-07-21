@@ -1,4 +1,3 @@
-import {TrainingEvent} from "../../services/event/models/TrainingEvent";
 import moment from "moment";
 
 const events = [

@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React, { useState} from 'react';
 import {TrainingEvent} from "../../services/event/models/TrainingEvent";
 import {GoogleMap, LoadScript} from "@react-google-maps/api";
 
@@ -40,6 +40,7 @@ const LocationFilter: React.FC<LocationFilterProps> = (props:LocationFilterProps
         <React.Fragment>
             <div style={{height: '100vh', width: '100%'}}>
                 <LoadScript
+                    /* TODO Add KEY Here */
                     googleMapsApiKey=''
                 >
                     <GoogleMap
@@ -49,7 +50,8 @@ const LocationFilter: React.FC<LocationFilterProps> = (props:LocationFilterProps
                         onLoad={onLoad}
                         onUnmount={onUnmount}
                     >
-                        { /* Child components, such as markers, info windows, etc. */ }
+                        { /* TODO Render Events Here using LocationComponent */ }
+
                         <></>
                     </GoogleMap>
                 </LoadScript>
