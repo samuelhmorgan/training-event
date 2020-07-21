@@ -8,7 +8,7 @@ Welcome to an Example App using the following stack
 *Run via Docker Compose*
 
 - From the root directory - run `docker-compose up`
-- Navigate to http://localhost:3001/events
+- Navigate to http://localhost:3000/events
 
 
 *Run the UI Locally*
